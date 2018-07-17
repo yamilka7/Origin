@@ -2,10 +2,11 @@
 
 namespace Tests\Unit;
 
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\user;
+use PHPUnit\Framework\Constraint\IsType;
 
 class UserTest extends TestCase
 {
@@ -22,4 +23,14 @@ class UserTest extends TestCase
         $user->password = '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
         $this->assertTrue($user->save());
     }
+    public function testDelete() {
+        $user = new user();
+        $user->name = 'Diana Castro';
+        $user->email = 'Diana@njit.com';
+        $user->password = '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
+        $user->save();
+
+        $this->assertTrue($user->delete());
+    }
+    
 }
