@@ -22,4 +22,14 @@ class CarsTest extends TestCase
         $car->Year = '2001';
         $this->assertTrue($car->save());
     }
+    public function testDelete()
+    {
+        $car = new car();
+        $car->Make = 'Hundai';
+        $car->Model = 'i';
+        $car->Year = '2001';
+        $car->save();
+
+        $this->assertTrue($car->delete());
+    }
 }
